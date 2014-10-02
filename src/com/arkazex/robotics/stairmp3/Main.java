@@ -18,18 +18,19 @@ public class Main {
 	
 	public static void main(String[] args) throws InterruptedException {
 		Scanner in = new Scanner(System.in);
-		for(int i = 0; i < 100; i++) {
+		while(true) {
 			System.out.print("> ");
 			String[] results = in.nextLine().split(" ");
-			playSound(results[0]);
-			
-			Clip[] array = clips.toArray(new Clip[clips.size()]);
-			for(int a = 0; a < array.length; a++) {
-				array[a].stop();
-				clips.remove(a);
+			for(int i = 0; i < results.length; i++) {
+				playSound("WAVs/Track" + results[i] + ".wav");
+				
+				Clip[] array = clips.toArray(new Clip[clips.size()]);
+				for(int a = 0; a < array.length; a++) {
+					array[a].stop();
+					clips.remove(a);
+				}
 			}
 		}
-		in.close();
 	}
 	public static void playSound(final String file) {
 		Thread t2 = new Thread() {
