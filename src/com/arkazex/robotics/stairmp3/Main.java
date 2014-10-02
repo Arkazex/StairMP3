@@ -24,6 +24,8 @@ public class Main {
 			for(int i = 0; i < results.length; i++) {
 				playSound("WAVs/Track" + results[i] + ".wav");
 				
+				Thread.sleep(250);
+				
 				Clip[] array = clips.toArray(new Clip[clips.size()]);
 				for(int a = 0; a < array.length; a++) {
 					array[a].stop();
