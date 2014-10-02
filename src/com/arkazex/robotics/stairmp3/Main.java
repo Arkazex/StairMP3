@@ -22,14 +22,12 @@ public class Main {
 			System.out.print("> ");
 			String[] results = in.nextLine().split(" ");
 			for(int i = 0; i < results.length; i++) {
-				playSound("WAVs/Track" + results[i] + ".wav");
-				
-				Thread.sleep(250);
-				
-				Clip[] array = clips.toArray(new Clip[clips.size()]);
-				for(int a = 0; a < array.length; a++) {
-					array[a].stop();
-					clips.remove(a);
+				if(results[i] == "x") {
+					Thread.sleep(500);
+				} else if(results[i] == "xx") {
+					Thread.sleep(1000);
+				} else {
+					playSound("WAVs/Track" + results[i] + ".wav");
 				}
 			}
 		}
